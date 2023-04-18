@@ -3,41 +3,14 @@
 <router-outlet></router-outlet>
 
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- <h1> You entered: {{password}}</h1>
-    <input type="text" [(ngModel)]="password" />
+    <div class="header">
+      <ul>
+        <li>
+          <a href="/login">Login</a>
+        </li>
 
-
-    <h1 *ngIf="checkPassword()">Welcome! Password is correct.</h1>
-
-    <table>
-      <thead>
-        <tr>
-          <th>SKU</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let temp of products; let i = index">
-          <td>{{temp.sku}}</td>
-          <td>{{temp.name}}</td>
-          <td>{{temp.price}}</td>
-          <td><button (click)="remove(i)" >Remove</button></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <button (click)="addProduct()">Add Product</button> -->
-  </body>
-</html>
+        <li>
+          <a href="/signup">Sign Up</a>
+        </li>
+      </ul>
+    </div>

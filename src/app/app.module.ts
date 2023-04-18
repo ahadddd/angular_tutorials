@@ -19,6 +19,10 @@ import { SignupComponent } from './signup/signup.component';
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
       }
     ])
   ],
