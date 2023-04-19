@@ -8,11 +8,12 @@ import { RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     LoginComponent,
-    SignupComponent
-  ],
+    SignupComponent,
+      AppComponent
+   ],
   imports: [
     BrowserModule, FormsModule,
     RouterModule.forRoot([
