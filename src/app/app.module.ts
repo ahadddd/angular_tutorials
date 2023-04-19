@@ -1,3 +1,4 @@
+import { UsersModule } from './users/users.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -24,6 +25,10 @@ import { SignupComponent } from './signup/signup.component';
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(module => module.UsersModule)
       }
     ])
   ],
