@@ -28,7 +28,7 @@ import { SignupComponent } from './signup/signup.component';
       },
       {
         path: 'users',
-        loadChildren: () => import('./users/users.module').then(module => module.UsersModule)
+        loadChildren: () => import(`./users/users.module`).then(module => module.UsersModule)
       }
     ])
   ],
