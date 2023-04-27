@@ -1,6 +1,8 @@
 <p>Users component from Users Module.</p>
 
-<ul>
-    <li *ngFor="let user of usersData"></li>
+<ul style="border: 1px solid; position: absolute; top: 200px;">
+    <li *ngFor="let user of usersData">
+        {{user.firstName}} {{user.secName}}
+    </li>
 </ul>
 
