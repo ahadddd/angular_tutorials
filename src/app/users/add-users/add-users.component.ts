@@ -8,20 +8,17 @@ import { DataService } from 'src/libs/data.service';
 })
 export class AddUsersComponent implements OnInit {
 
-  usersData: any = [];
-  constructor() { }
+  constructor(public usersService: DataService) { }
 
   ngOnInit() {
-    let data = new DataService();
-    this.usersData = data.users;
   }
 
   getUser(index: number): string {
-    return this.usersData[index].firstName +' '+this.usersData[index].secName;
+    return this.usersService.users[index].firstName +' '+this.usersService.users[index].secName;
   }
 
   updateName(index: number) {
-    this.usersData[index].firstName = 'Some different long name';
+    this.usersService.users[index].firstName = 'Some different long name';
   }
 
 }

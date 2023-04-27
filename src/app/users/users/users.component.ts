@@ -7,15 +7,12 @@ import { DataService } from 'src/libs/data.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
-  usersData: any = [];
-
-  constructor() { }
+  users: any = [];
+  constructor(public usersService: DataService) { }
 
   ngOnInit(): void {
     
-    let data = new DataService();
-    this.usersData = data.users;
+    this.users = this.usersService.users    
 
   }
 }

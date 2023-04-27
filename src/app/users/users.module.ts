@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users/users.component';
 import { RouterModule } from '@angular/router';
 import { AddUsersComponent } from './add-users/add-users.component';
+import { DataService } from 'src/libs/data.service';
 
 
 
@@ -23,6 +24,9 @@ import { AddUsersComponent } from './add-users/add-users.component';
         component: AddUsersComponent
       }
     ])
+  ],
+  providers: [
+    DataService
   ]
 })
 export class UsersModule { }
