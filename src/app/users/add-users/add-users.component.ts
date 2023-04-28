@@ -18,7 +18,7 @@ export class AddUsersComponent implements OnInit {
   }
 
   updateName(index: number) {
-    this.usersService.users[index].firstName = 'Some different long name';
+    this.usersService.users[index].firstName = 'A different name';
   }
 
 }
