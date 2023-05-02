@@ -14,7 +14,7 @@ export class AddUsersComponent implements OnInit {
   }
 
   getUser(index: number): string {
-    return this.usersService.users[index].firstName +' '+this.usersService.users[index].secName;
+    return this.usersService.users[index].firstName + ' ' + this.usersService.users[index].secName;
   }
 
   updateName(index: number) {
