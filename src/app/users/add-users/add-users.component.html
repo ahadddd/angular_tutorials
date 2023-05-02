@@ -2,23 +2,20 @@
   <h1>Add User</h1>
 
   <form (submit)="saveUser()" [formGroup]="userForm">
-    <input placeholder="Enter First Name" formControlName="first_name" />
+    <input
+      placeholder="Enter First Name"
+      formControlName="first_name"
+      [class.errors]="firstName.invalid"
+    />
     <div class="errors" *ngIf="firstName.invalid">
-      <p
-        *ngIf="
-          firstName.errors?.hasOwnProperty(
-            'maxlength'
-          )
-        "
-      >
+      <p *ngIf="firstName.errors?.hasOwnProperty('maxlength')">
         Length exceeded. Characters entered are:
-        {{this.userForm.controls['first_name'].errors?.['maxlength'].actualLength}}. 
-        Only
-        {{this.userForm.controls['first_name'].errors?.['maxlength'].requiredLength}}
+        {{firstName.errors?.['maxlength'].actualLength}}. Only
+        {{firstName.errors?.['maxlength'].requiredLength}}
         are allowed.
       </p>
 
-      <p *ngIf="this.userForm.controls['first_name'].errors?.hasOwnProperty('required')">
+      <p *ngIf="firstName.errors?.hasOwnProperty('required')">
         Field is required.
       </p>
     </div>
@@ -26,5 +23,11 @@
     <input placeholder="Enter Second Name" formControlName="last_name" />
 
     <button type="submit">Save User</button>
+    <div class="modal" *ngIf="this.userForm.invalid">
+      <div>
+        <h3>Form is incomplete. Fill out all fields.</h3>
+        <button>Close</button>
+      </div>
+    </div>
   </form>
 </div>

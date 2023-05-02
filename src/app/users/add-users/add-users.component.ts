@@ -23,27 +23,35 @@ export class AddUsersComponent implements OnInit {
 
 
   get firstName() {
-    return this.userForm.controls['first_name']
+    return this.userForm.controls['first_name'];
   }
 
 
+  // saveUser() {
+  //   const fNameControl = this.userForm.controls['first_name'];
+
+  //   if (fNameControl.invalid) {
+  //     let errorMsg = '';
+  //     if (fNameControl.errors?.hasOwnProperty('maxlength')) {
+  //       alert(`Length exceeded. Characters entered are: ${fNameControl.errors['maxlength'].actualLength}. Only ${fNameControl.errors['maxlength'].requiredLength} are allowed.`)
+  //     }
+  //     else {
+  //       alert('Field can not be left empty.');
+  //     }
+
+  //   }
+  //   else {
+  //     alert(`Hello ${fNameControl.value}!`);
+  //   }
+  // }
+
   saveUser() {
-    const fNameControl = this.userForm.controls['first_name'];
-
-
-    if (fNameControl.invalid) {
-      let errorMsg = '';
-      if (fNameControl.errors?.hasOwnProperty('maxlength')) {
-        alert(`Length exceeded. Characters entered are: ${fNameControl.errors['maxlength'].actualLength}. Only ${fNameControl.errors['maxlength'].requiredLength} are allowed.`)
-      }
-      else {
-        alert('Field can not be left empty.');
-      }
-
+    if(this.userForm.invalid) {
+      alert('Form incomplete.');
+      return;
     }
-    else {
-      alert(`Hello ${fNameControl.value}!`);
-    }
+    const data = this.userForm.getRawValue();
+    console.log(data);
   }
 
 }
