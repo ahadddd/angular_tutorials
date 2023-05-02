@@ -2,12 +2,25 @@
   <h1>Add User</h1>
 
   <form (submit)="saveUser()" [formGroup]="userForm">
+    <input placeholder="Enter First Name" formControlName="first_name" />
+    <div class="errors" *ngIf="this.userForm.controls['first_name'].invalid">
+      <p
+        *ngIf="
+          this.userForm.controls['first_name'].errors?.hasOwnProperty(
+            'maxlength'
+          )
+        "
+      >
+        Length exceeded. Characters entered are:
+        {{this.userForm.controls['first_name'].errors?.['maxlength'].actualLength}}. 
+        Only
+        {{this.userForm.controls['first_name'].errors?.['maxlength'].requiredLength}}
+        are allowed.
+      </p>
+    </div>
 
-    <input placeholder="Enter First Name" formControlName="first_name">
-
-    <input placeholder="Enter Second Name" formControlName="last_name">
+    <input placeholder="Enter Second Name" formControlName="last_name" />
 
     <button type="submit">Save User</button>
-
   </form>
 </div>
