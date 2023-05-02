@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/libs/data.service';
 
 @Component({
@@ -9,28 +9,37 @@ import { DataService } from 'src/libs/data.service';
 })
 export class AddUsersComponent implements OnInit {
   userForm!: FormGroup;
-    
-  
-  
+
+
+
   constructor(public usersService: DataService) {
   }
   ngOnInit() {
     this.userForm = new FormGroup({
-      first_name: new FormControl(),
+      first_name: new FormControl('Ali', [Validators.required, Validators.maxLength(5)]),
       last_name: new FormControl()
     })
   }
 
-  getUser(index: number): string {
-    return this.usersService.users[index].firstName + ' ' + this.usersService.users[index].secName;
-  }
 
-  updateName(index: number) {
-    this.usersService.users[index].firstName = 'A different name';
-  }
 
   saveUser() {
-    alert("User added!");
+    const fNameControl = this.userForm.controls['first_name'];
+
+
+    if (fNameControl.invalid) {
+      let errorMsg = '';
+      if (fNameControl.errors?.hasOwnProperty('maxlength')) {
+        alert(`Length exceeded. Characters entered are: ${fNameControl.errors['maxlength'].actualLength}. Only ${fNameControl.errors['maxlength'].requiredLength} are allowed.`)
+      }
+      else {
+        alert('Field can not be left empty.');
+      }
+
+    }
+    else {
+      alert(`Hello ${fNameControl.value}!`);
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Add User</h1>
 
-  <form (submit)="saveUser()" [formGroup="userForm">
+  <form (submit)="saveUser()" [formGroup]="userForm">
 
     <input placeholder="Enter First Name" formControlName="first_name">
 
