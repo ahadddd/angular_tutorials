@@ -1,8 +1,44 @@
+<table>
+  <thead>
+    <th>Image</th>
+    <th>Email</th>
+    <th>Name</th>
+  </thead>
 
-<ul style="border: 1px solid; position: absolute; top: 200px;">
-    <li *ngFor="let user of users">
-        {{user.firstName}} {{user.secName}}
-    </li>
-</ul>
+  <tbody *ngIf= "loading == 'done'">
+    <tr *ngFor="let user of usersList">
+      <td>
+        <img [src]="user.avatar" />
+      </td>
+      <td>
+        {{user.email}}
+      </td>
+      <td>
+        {{user.first_name + ' '+user.last_name}}
+      </td>
+    </tr>
+  </tbody>
 
-<app-add-users style="border: 1px solid; position: absolute; top: 200px;"></app-add-users>
+
+  <tbody *ngIf= "loading == 'loading'">
+      <td colspan="3">
+        Please wait, loading data...
+      </td>
+  </tbody>
+
+  <tbody *ngIf= "loading == 'error'">
+      <td colspan="3">
+        Encountered Error.
+      </td>
+  </tbody>
+
+  <tbody *ngIf= "loading == ''">
+      <td colspan="3">
+        Press Button to get user data.
+      </td>
+  </tbody>
+</table>
+
+
+
+<button (click)="getUsersFromServer()">Users Component</button>

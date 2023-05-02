@@ -1,5 +1,13 @@
-<h1 style="height: 80px; width: 200px; ">
-  {{ getUser(2) }}
-</h1>
+<div class="container">
+  <h1>Add User</h1>
 
-<button style="height: 70px; width: 150px; top: 200px;"  (click)="updateName(2)" >Update User's Name</button>
+  <form (submit)="saveUser()" [formGroup="userForm">
+
+    <input placeholder="Enter First Name" formControlName="first_name">
+
+    <input placeholder="Enter Second Name" formControlName="last_name">
+
+    <button type="submit">Save User</button>
+
+  </form>
+</div>
