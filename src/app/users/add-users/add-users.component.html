@@ -3,10 +3,10 @@
 
   <form (submit)="saveUser()" [formGroup]="userForm">
     <input placeholder="Enter First Name" formControlName="first_name" />
-    <div class="errors" *ngIf="this.userForm.controls['first_name'].invalid">
+    <div class="errors" *ngIf="firstName.invalid">
       <p
         *ngIf="
-          this.userForm.controls['first_name'].errors?.hasOwnProperty(
+          firstName.errors?.hasOwnProperty(
             'maxlength'
           )
         "
@@ -16,6 +16,10 @@
         Only
         {{this.userForm.controls['first_name'].errors?.['maxlength'].requiredLength}}
         are allowed.
+      </p>
+
+      <p *ngIf="this.userForm.controls['first_name'].errors?.hasOwnProperty('required')">
+        Field is required.
       </p>
     </div>
 

@@ -22,6 +22,10 @@ export class AddUsersComponent implements OnInit {
   }
 
 
+  get firstName() {
+    return this.userForm.controls['first_name']
+  }
+
 
   saveUser() {
     const fNameControl = this.userForm.controls['first_name'];
